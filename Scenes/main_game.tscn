@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbb24npmsh4j"]
+
+[ext_resource type="PackedScene" uid="uid://7ekvtanb3wma" path="res://Scenes/Units/player.tscn" id="1_pu3va"]
+[ext_resource type="PackedScene" uid="uid://lqtlhadww020" path="res://Scenes/Maps/main_area.tscn" id="2_0e3vx"]
+
+[node name="MainGame" type="Node"]
+
+[node name="MainAreaGround" parent="." instance=ExtResource("2_0e3vx")]
+
+[node name="Player" parent="." instance=ExtResource("1_pu3va")]
