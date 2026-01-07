@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://biilp2a45jl57"]
+
+[node name="Node" type="Node"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+text = "test"
