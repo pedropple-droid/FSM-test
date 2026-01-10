@@ -9,7 +9,7 @@
 [node name="MainAreaGround" parent="." instance=ExtResource("2_0e3vx")]
 
 [node name="Player" parent="." instance=ExtResource("1_pu3va")]
-position = Vector2(170, 4)
+position = Vector2(334, 549)
 
 [node name="enemy" parent="." instance=ExtResource("3_0e3vx")]
-position = Vector2(321, 8)
+position = Vector2(458, 557)

@@ -1,9 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://bwtx53nxpm4gh"]
+[gd_scene load_steps=37 format=3 uid="uid://bwtx53nxpm4gh"]
 
 [ext_resource type="Script" uid="uid://dq0mcraofdpyy" path="res://Scripts/enemy.gd" id="1_ymxaj"]
 [ext_resource type="Texture2D" uid="uid://c4c1cup1g4b1u" path="res://Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Orc/Orc/Orc-Hurt.png" id="2_65gas"]
 [ext_resource type="Texture2D" uid="uid://tienouraacbf" path="res://Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Orc/Orc/Orc-Idle.png" id="2_88kja"]
 [ext_resource type="Texture2D" uid="uid://bxx488rjpvyjp" path="res://Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Orc/Orc/Orc-Attack01.png" id="2_skno6"]
+[ext_resource type="Texture2D" uid="uid://balbexh52xvk2" path="res://Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Orc/Orc/Orc-Walk.png" id="5_efn5v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ijihy"]
 atlas = ExtResource("2_skno6")
@@ -68,6 +69,38 @@ region = Rect2(100, 0, 100, 100)
 [sub_resource type="AtlasTexture" id="AtlasTexture_rtpkk"]
 atlas = ExtResource("2_skno6")
 region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ip56o"]
+atlas = ExtResource("5_efn5v")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdoxj"]
+atlas = ExtResource("5_efn5v")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgudy"]
+atlas = ExtResource("5_efn5v")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41ixm"]
+atlas = ExtResource("5_efn5v")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x48y4"]
+atlas = ExtResource("5_efn5v")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjegt"]
+atlas = ExtResource("5_efn5v")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_upvcy"]
+atlas = ExtResource("5_efn5v")
+region = Rect2(600, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6l40"]
+atlas = ExtResource("5_efn5v")
+region = Rect2(700, 0, 100, 100)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_601d1"]
 animations = [{
@@ -165,6 +198,64 @@ animations = [{
 "loop": false,
 "name": &"preattack",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ip56o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sdoxj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pgudy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_41ixm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x48y4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjegt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_upvcy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6l40")
+}],
+"loop": true,
+"name": &"running",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ip56o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sdoxj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pgudy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_41ixm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x48y4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjegt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_upvcy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6l40")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 12.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6d06k"]
@@ -175,12 +266,20 @@ height = 14.0
 radius = 7.0
 height = 18.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_skno6"]
+radius = 10.000001
+height = 140.0
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ip56o"]
 radius = 6.0
 height = 18.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sdoxj"]
 radius = 9.0
+height = 18.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_efn5v"]
+radius = 7.0
 height = 18.0
 
 [node name="enemy" type="CharacterBody2D"]
@@ -203,22 +302,49 @@ collision_mask = 2
 position = Vector2(-1, 0)
 shape = SubResource("CapsuleShape2D_ijihy")
 
-[node name="Sword" type="Area2D" parent="."]
+[node name="FacingPivot" type="Node2D" parent="."]
+
+[node name="Detection" type="Area2D" parent="FacingPivot"]
+collision_layer = 128
+collision_mask = 128
+
+[node name="DetectionArea" type="CollisionShape2D" parent="FacingPivot/Detection"]
+position = Vector2(58, -1)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_skno6")
+
+[node name="RaycastRight" type="RayCast2D" parent="FacingPivot"]
+target_position = Vector2(6, 0)
+
+[node name="Sword" type="Area2D" parent="FacingPivot"]
 collision_layer = 4
 collision_mask = 0
 
-[node name="SwordHitBox" type="CollisionShape2D" parent="Sword"]
+[node name="SwordHitBox" type="CollisionShape2D" parent="FacingPivot/Sword"]
 position = Vector2(14, 0)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_ip56o")
 disabled = true
+debug_color = Color(0.9810907, 0, 0.3781219, 0.41960785)
 
-[node name="SwordHitFlyingBox" type="CollisionShape2D" parent="Sword"]
-position = Vector2(15, 3)
+[node name="SwordHitFlyingBox" type="CollisionShape2D" parent="FacingPivot/Sword"]
+position = Vector2(14, 0)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_sdoxj")
 disabled = true
 
+[node name="SwordDetectionArea" type="Area2D" parent="FacingPivot"]
+collision_layer = 0
+collision_mask = 128
+
+[node name="SwordDetection" type="CollisionShape2D" parent="FacingPivot/SwordDetectionArea"]
+position = Vector2(15, 0)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_efn5v")
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
+[connection signal="body_entered" from="FacingPivot/Detection" to="." method="_on_detection_body_entered"]
+[connection signal="body_exited" from="FacingPivot/Detection" to="." method="_on_detection_body_exited"]
+[connection signal="body_entered" from="FacingPivot/SwordDetectionArea" to="." method="_on_sword_detection_area_body_entered"]

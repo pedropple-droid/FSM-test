@@ -379,9 +379,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_10ilb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_10ilb")
 }],
 "loop": false,
 "name": &"pattacking",
@@ -427,20 +424,20 @@ height = 14.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mt7ic"]
 radius = 6.0
-height = 18.0
+height = 22.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wqw3s"]
 radius = 6.9999995
-height = 22.0
+height = 26.0
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
-collision_layer = 0
+collision_layer = 128
 script = ExtResource("1_lhj2a")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_3nwe2")
-animation = &"jattacking"
+animation = &"pattacking"
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_k1dyq")
@@ -457,13 +454,14 @@ collision_layer = 2
 collision_mask = 0
 
 [node name="SwordHitBox" type="CollisionShape2D" parent="Sword"]
-position = Vector2(14, 0)
+position = Vector2(11, 0)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_mt7ic")
 disabled = true
+debug_color = Color(0.9776464, 0, 0.4061773, 0.41960785)
 
 [node name="SwordHitFlyingBox" type="CollisionShape2D" parent="Sword"]
-position = Vector2(16, 3)
+position = Vector2(10, 2)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_wqw3s")
 disabled = true

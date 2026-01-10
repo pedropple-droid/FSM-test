@@ -7,6 +7,7 @@ const JUMP_VELOCITY = -250.0
 @onready var sword_area: Area2D = $Sword
 @onready var sword: CollisionShape2D = $Sword/SwordHitBox
 @onready var flying_sword: CollisionShape2D = $Sword/SwordHitFlyingBox
+@onready var hurt_box: Area2D = $HurtBox
 
 enum States {IDLE, RUN, PREPARE_ATTACK, ATTACK, FALL, JUMP, JPATTACK, JATTACK, DEFENDING, HURT}
 
@@ -130,6 +131,7 @@ func enter_state(new_state):
 			play_animation("defending")
 		States.HURT:
 			play_animation("hurt")
+			hurt_box.set_deferred("monitoring", false)
 
 func exit_state(old_state):
 	pass
@@ -156,6 +158,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		States.DEFENDING:
 			change_state(States.IDLE)
 		States.HURT:
+			hurt_box.monitoring = true
 			change_state(States.IDLE)
 
 func movement():
